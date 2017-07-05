@@ -27,20 +27,6 @@ arrResult1 = arrBottom.concat(arrRight, arrTop, arrLeft);
 
 console.log(arrResult1);
 
-/*получить эл-ты, лежащие на гранях треугольника, образованного верхней стороной, правой стороной и главной диагональю
-направление - от верхнего левого угла*/
-
-var arrMainDiagonal = [];
-for (i = 0; i < mainArr.length; i++){
-	for(j = 0; j < mainArr[i].length; j++){
-		if(i === j){
-			arrMainDiagonal.push(mainArr[i][j]);
-		}
-	}
-};
-
-console.log(arrMainDiagonal);
-
 /*Пhойти двумерный массив по спирали от верхнего левого угла*/
 
 var length,
@@ -119,6 +105,21 @@ arrResult2 = arrTop1.concat(arrRight1, arrBottom1, arrLeft1, arrTop2, arrRight2,
 
 console.log(arrResult2);
 
+/*получить эл-ты, лежащие на гранях треугольника, образованного верхней стороной, правой стороной и главной диагональю
+направление - от верхнего левого угла*/
+
+var arrMainDiagonal = [],
+	arrTriangle = [];
+for (i = 0; i < mainArr.length; i++){
+	for(j = 0; j < mainArr[i].length; j++){
+		if(i === j){
+			arrMainDiagonal.push(mainArr[i][j]);
+		}
+	}
+};
+arrMainDiagonal.reverse().pop();
+arrTriangle = arrTop1.concat(arrRight1,arrMainDiagonal);
+console.log(arrTriangle);
 
 /*Отзеркалить части массива, разделенные главной диагональю.*/
 var addArr = [];
